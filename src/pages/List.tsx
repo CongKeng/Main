@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function ListPage() {
   return (
     <div className="p-6">
@@ -25,7 +27,11 @@ function ListPage() {
               <td className="px-4 py-2 border border-gray-300">1</td>
               <td className="px-4 py-2 border border-gray-300">Mark</td>
               <td className="px-4 py-2 border border-gray-300">Description</td>
-              <td className="px-4 py-2 border border-gray-300">Edit</td>
+              <td className="px-4 py-2 border border-gray-300">
+                <Link to="/edit/1" className="text-blue-600 hover:text-blue-800 hover:underline">
+                  Edit
+                </Link>
+              </td>
             </tr>
           </tbody>
         </table>
