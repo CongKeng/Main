@@ -72,10 +72,24 @@
     },
     {
       "name": "Công",
-      "price": 1,
-      "description": "11",
-      "teacher": "2",
-      "id": 11
+      "credit": "123",
+      "category": "Chuyên ngành",
+      "teacher": "123",
+      "id": 12
+    },
+    {
+      "name": "Công",
+      "credit": "123",
+      "category": "Ngoại khóa",
+      "teacher": "12233",
+      "id": 13
+    },
+    {
+      "name": "Nguyễn Duy Công",
+      "credit": "12",
+      "category": "Chuyên ngành",
+      "teacher": "12233",
+      "id": 14
     }
   ]
 }
