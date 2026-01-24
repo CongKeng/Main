@@ -8,20 +8,6 @@
   ],
   "products": [
     {
-      "id": 2,
-      "name": "iPhone 15 Pro",
-      "price": 28000000,
-      "description": "Điện thoại thông minh Apple với camera nâng cao",
-      "teacher": "Trần Thị B"
-    },
-    {
-      "id": 3,
-      "name": "iPad Air",
-      "price": 15000000,
-      "description": "Máy tính bảng Apple với màn hình Liquid Retina",
-      "teacher": "Nguyễn Văn A"
-    },
-    {
       "id": 4,
       "name": "Sony WH-1000XM5",
       "price": 8000000,
@@ -69,27 +55,6 @@
       "price": 6000000,
       "description": "Tai nghe không dây Apple chống ồn tích cực",
       "teacher": "Phạm Văn C"
-    },
-    {
-      "name": "Công",
-      "credit": "123",
-      "category": "Chuyên ngành",
-      "teacher": "123",
-      "id": 12
-    },
-    {
-      "name": "Công",
-      "credit": "123",
-      "category": "Ngoại khóa",
-      "teacher": "12233",
-      "id": 13
-    },
-    {
-      "name": "Nguyễn Duy Công",
-      "credit": "12",
-      "category": "Chuyên ngành",
-      "teacher": "12233",
-      "id": 14
     }
   ]
 }
