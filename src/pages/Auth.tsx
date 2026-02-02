@@ -52,7 +52,7 @@ function AuthPage({ isLogin: defaultIsLogin = false }: Props) {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<RegisterFormValues | LoginFormValues>({
+  } = useForm<any>({
     resolver: zodResolver(isLogin ? loginSchema : registerSchema),
     mode: "onBlur",
   });
@@ -66,6 +66,7 @@ function AuthPage({ isLogin: defaultIsLogin = false }: Props) {
           values,
         );
         localStorage.setItem("accessToken", data.accessToken);
+        localStorage.setItem("user", JSON.stringify(data.user));
         toast.success("Đăng nhập thành công");
         nav("/list");
       } else {
@@ -104,7 +105,7 @@ function AuthPage({ isLogin: defaultIsLogin = false }: Props) {
                 }`}
               />
               {errors.username && (
-                <p className="text-red-500 text-sm mt-1">{errors.username.message}</p>
+                <p className="text-red-500 text-sm mt-1">{errors.username?.message}</p>
               )}
             </div>
           )}
@@ -123,7 +124,7 @@ function AuthPage({ isLogin: defaultIsLogin = false }: Props) {
               }`}
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+              <p className="text-red-500 text-sm mt-1">{errors.email?.message}</p>
             )}
           </div>
 
@@ -141,7 +142,7 @@ function AuthPage({ isLogin: defaultIsLogin = false }: Props) {
               }`}
             />
             {errors.password && (
-              <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+              <p className="text-red-500 text-sm mt-1">{errors.password?.message}</p>
             )}
           </div>
 
@@ -160,7 +161,7 @@ function AuthPage({ isLogin: defaultIsLogin = false }: Props) {
                 }`}
               />
               {errors.confirmPassword && (
-                <p className="text-red-500 text-sm mt-1">{errors.confirmPassword.message}</p>
+                <p className="text-red-500 text-sm mt-1">{errors.confirmPassword?.message}</p>
               )}
             </div>
           )}

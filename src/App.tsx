@@ -1,5 +1,6 @@
 import { Toaster } from "react-hot-toast";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import ListPage from "./pages/List";
 import AddPage from "./pages/Add";
 import AuthPage from "./pages/Auth";
@@ -7,7 +8,29 @@ import AuthPage from "./pages/Auth";
 // import AddPage from "./pages/Add";
 // import EditPage from "./pages/Edit";
 
+type User = {
+  id: number;
+  username: string;
+  email: string;
+};
+
 function App() {
+  const [user, setUser] = useState<User | null>(null);
+  const nav = useNavigate();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser) as User);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("accessToken");
+    setUser(null);
+    nav("/");
+  };
   return (
     <>
       <nav className="bg-blue-600 text-white shadow">
@@ -29,12 +52,21 @@ function App() {
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="/auth" className="hover:text-gray-200">
-              Đăng nhập
-            </Link>
-            <Link to="/auth" className="hover:text-gray-200">
-              Đăng ký
-            </Link>
+            {user ? (
+              <>
+                <span className="text-white">Xin chào, {user.username}</span>
+                <button onClick={handleLogout} className="hover:text-gray-200 text-white">Đăng xuất</button>
+              </>
+            ) : (
+              <>
+                <Link to="/auth" className="hover:text-gray-200">
+                  Đăng nhập
+                </Link>
+                <Link to="/auth" className="hover:text-gray-200">
+                  Đăng ký
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>
